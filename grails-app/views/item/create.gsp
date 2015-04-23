@@ -1,3 +1,5 @@
+<%@ page import="rawItemCatalog.MeasureUnit" %>
+<%@ page import="rawItemCatalog.Category" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -27,7 +29,28 @@
             </g:hasErrors>
             <g:form action="save">
                 <fieldset class="form">
-                    <f:all bean="item"/>
+                    <table>
+                        <tr>
+                            <td><label for="name">Name:</label></td>
+                            <td><g:textField name="name" value="${item.name}" /></td>
+                        </tr>
+                        <tr>
+                            <td><label for="comments">Comments:</label></td>
+                            <td><g:textField name="comments" value="${item.comments}" /></td>
+                        </tr>
+                        <tr>
+                            <td><label for="sellable">Sellable:</label></td>
+                            <td><g:checkBox name="sellable" value="${item.sellable}" /></td>
+                        </tr>
+                        <tr>
+                            <td><label for="measureUnit">Measure unit:</label></td>
+                            <td><g:select name="measureUnit" from="${MeasureUnit.list()}" optionKey="id" optionValue="name" value="${item.measureUnit}" /></td>
+                        </tr>
+                        <tr>
+                            <td><label for="categories">Categories:</label></td>
+                            <td><g:select multiple="true" from="${Category.list()}" optionKey="id" optionValue="name" name="categories" value="${item?.categories}" /></td>
+                        </tr>
+                    </table>
                 </fieldset>
                 <fieldset class="buttons">
                     <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
