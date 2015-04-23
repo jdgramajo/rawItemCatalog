@@ -1,11 +1,11 @@
 package rawItemCatalog
 
-import grails.rest.Resource
+//import grails.rest.Resource
 
-@Resource(uri='/items', formats = ['json', 'xml'])
+//@Resource(uri='/items', formats = ['json', 'xml'])
 class Item {
 
-    static hasMany = [categories: rawItemCatalog.Category]
+    static hasMany = [categories: Category]
 
     String name
     String comments
