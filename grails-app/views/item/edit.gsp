@@ -1,3 +1,4 @@
+<%@ page import="rawItemCatalog.Category" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,7 +30,15 @@
             <g:form resource="${item}" method="PUT">
                 <g:hiddenField name="version" value="${item?.version}" />
                 <fieldset class="form">
-                    <f:all bean="item"/>
+                    <f:with bean="item">
+                        <f:field property="name" />
+                        <f:field property="comments" />
+                        <f:field property="sellable" />
+                        <f:field property="measureUnit" />
+                        <f:field property="categories">
+                            <g:select name="categories" from="${Category.list()}" multiple="true" optionKey="id" optionValue="name" value="${item.categories}" />
+                        </f:field>
+                    </f:with>
                 </fieldset>
                 <fieldset class="buttons">
                     <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />

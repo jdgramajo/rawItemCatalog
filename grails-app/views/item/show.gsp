@@ -1,3 +1,4 @@
+<%@ page import="rawItemCatalog.Category" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,7 +20,23 @@
             <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
             </g:if>
-            <f:display bean="item" />
+            <f:with bean="item">
+                <f:field property="name">
+                    <g:textField name="name" value="${item.name}" disabled="true" />
+                </f:field>
+                <f:field property="comments">
+                    <g:textField name="comments" value="${item.comments}" disabled="true" />
+                </f:field>
+                <f:field property="sellable">
+                    <g:checkBox name="sellable" value="${item.sellable}" disabled="true" />
+                </f:field>
+                <f:field property="measureUnit">
+                    <g:textField name="measureUnit" value="${item.measureUnit}" disabled="true" />
+                </f:field>
+                <f:field property="categories">
+                    <g:select name="categories" from="${Category.list()}" multiple="true" optionKey="id" optionValue="name" value="${item.categories}" disabled="true" />
+                </f:field>
+            </f:with>
             </ol>
             <g:form resource="${item}" method="DELETE">
                 <fieldset class="buttons">

@@ -1,4 +1,3 @@
-<%@ page import="rawItemCatalog.MeasureUnit" %>
 <%@ page import="rawItemCatalog.Category" %>
 <!DOCTYPE html>
 <html>
