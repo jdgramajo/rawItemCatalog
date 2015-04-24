@@ -13,5 +13,10 @@ class Item {
     MeasureUnit measureUnit
 
     static constraints = {
+        name(blank: false, unique: true)
+        comments(blank: false)
+        sellable()
+        measureUnit()
+        categories()
     }
 }

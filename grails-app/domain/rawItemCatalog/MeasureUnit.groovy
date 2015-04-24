@@ -11,4 +11,9 @@ class MeasureUnit {
 
     static constraints = {
     }
+
+    String toString() {
+        "${name} - ${abreviation}"
+    }
+
 }
