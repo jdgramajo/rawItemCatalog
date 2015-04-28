@@ -58,7 +58,8 @@ grails.project.dependency.resolution = {
 
     plugins {
         // plugins for the build system only
-        build ":tomcat:7.0.55.2" // or ":tomcat:8.0.20"
+        // build ":tomcat:7.0.55.2" // or
+        build ":tomcat:8.0.20"
 
         // plugins for the compile step
         // REMOVING ALL AS SPECIFIED IN THE VAADIN ON GRAILS BOOK
@@ -69,8 +70,8 @@ grails.project.dependency.resolution = {
 
         // plugins needed at runtime but not for compilation
         //runtime ":hibernate4:4.3.8.1" // or ":hibernate:3.6.10.18" <- both fail at runtime!
-        // REMOVING ALL AS SPECIFIED IN THE VAADIN ON GRAILS BOOK
-        // runtime ":hibernate4:4.3.5.5"
+        runtime ":hibernate4:4.3.5.5"
+        // REMOVING ALL AS SPECIFIED IN THE VAADIN ON GRAILS BOOK NEVER EVER EVER, REMOVE THE RUNTIME HIBERNATE PLUGIN!
         // runtime ":database-migration:1.4.0"
         // runtime ":jquery:1.11.1"
 
